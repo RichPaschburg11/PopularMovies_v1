@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.paschburg.rich.popularmovies_v1.AboutActivity">
+
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingTop="100dp"
+        android:paddingLeft="100dp"
+        android:paddingRight="100dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/var_8_0_tmdb_logo_2_bree"
+        />
+
+    <TextView
+        android:id="@+id/about_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        android:text="@string/about_content" />
+
+</LinearLayout>
