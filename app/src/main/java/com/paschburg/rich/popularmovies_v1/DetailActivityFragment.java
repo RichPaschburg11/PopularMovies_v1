@@ -129,7 +129,10 @@ public class DetailActivityFragment extends Fragment {
             String popularity3 = formatter.format(popularity2);
             details[4] = "popularity is low (" + popularity3 +")";
         }
-        else details[4] = "popularity " + popularity.substring(0,5);
+        else {
+            if (popularity.length() < 6) popularity = popularity + "     ";
+            details[4] = "popularity " + popularity.substring(0,5);
+        }
 
 
         description = movieObject.getString(TMDB_DESCRIPTION);
