@@ -25,6 +25,7 @@ import java.text.NumberFormat;
 public class DetailActivityFragment extends Fragment {
 
     private final String LOG_TAG = Fragment.class.getSimpleName();
+    private int number_of_JSON_values = 6;
 
     public DetailActivityFragment() {
     }
@@ -43,7 +44,7 @@ public class DetailActivityFragment extends Fragment {
 
         }
 
-        String[] details = new String[6];
+        String[] details = new String[number_of_JSON_values];
 
         try {
 
@@ -73,13 +74,16 @@ public class DetailActivityFragment extends Fragment {
     private String[] getMovieDetailsFromJson(String jsonString)
             throws JSONException {
 
-        final String TMDB_MOVIES = "results";
         final String TMDB_IMAGE = "poster_path";
         final String TMDB_TITLE = "title";
         final String TMDB_RELEASEDATE = "release_date";
         final String TMDB_POPULARITY = "popularity";
         final String TMDB_VOTEAVERAGE = "vote_average";
         final String TMDB_DESCRIPTION = "overview";
+        final String authority = "image.tmdb.org";
+        final String path1 = "t";
+        final String path2 = "p";
+        final String width = "w185";
 
         Uri.Builder builder;
         String movieName;
@@ -88,7 +92,7 @@ public class DetailActivityFragment extends Fragment {
         String popularity;
         String description;
         String image;
-        String[] details = new String[6];
+        String[] details = new String[number_of_JSON_values];
 
         JSONObject movieObject = new JSONObject(jsonString);
 
@@ -99,10 +103,10 @@ public class DetailActivityFragment extends Fragment {
         image = movieObject.getString(TMDB_IMAGE);
         builder = new Uri.Builder();
         builder.scheme("http")
-                .authority("image.tmdb.org")
-                .appendPath("t")
-                .appendPath("p")
-                .appendPath("w185")
+                .authority(authority)
+                .appendPath(path1)
+                .appendPath(path2)
+                .appendPath(width)
                 .appendPath("")
                 .appendPath(image.substring(1));
         details[1] = builder.build().toString();

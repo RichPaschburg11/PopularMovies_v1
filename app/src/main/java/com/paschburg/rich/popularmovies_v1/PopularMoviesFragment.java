@@ -32,6 +32,12 @@ public class PopularMoviesFragment extends Fragment {
     private GridViewAdapter mPopularMoviesAdapter;
     private GridView gridVies;
     public UserPrefs userPrefs;
+    private int number_movies_from_call = 20;
+    private String authority = "image.tmdb.org";
+    private String path1 = "t";
+    private String path2 = "p";
+    private String width = "w185";
+
 
     public PopularMoviesFragment() {
     }
@@ -70,21 +76,21 @@ public class PopularMoviesFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         GridView gridView = (GridView) rootView.findViewById(R.id.gridView1);
 
-        String[] resultStrs = new String[20];
-        String[] json = new String[20];
+        String[] resultStrs = new String[number_movies_from_call];
+        String[] json = new String[number_movies_from_call];
 
-        ImageItem[] imageitems2 = new ImageItem[20];
+        ImageItem[] imageitems2 = new ImageItem[number_movies_from_call];
 
         Uri.Builder builder;
 
-        for (int i=0; i < 20; i++){
+        for (int i=0; i < number_movies_from_call; i++){
 
             builder = new Uri.Builder();
             builder.scheme("http")
-                    .authority("image.tmdb.org")
-                    .appendPath("t")
-                    .appendPath("p")
-                    .appendPath("w185")
+                    .authority(authority)
+                    .appendPath(path1)
+                    .appendPath(path2)
+                    .appendPath(width)
                     .appendPath("")
                     .appendPath(json[i]);
 
@@ -205,7 +211,7 @@ public class PopularMoviesFragment extends Fragment {
 
             try {
 
-                return getPopularMoviesDataFromJson(popularMoviesJsonStr, 20);
+                return getPopularMoviesDataFromJson(popularMoviesJsonStr, number_movies_from_call);
 
             }
             catch (JSONException e) {
@@ -265,10 +271,10 @@ public class PopularMoviesFragment extends Fragment {
 
                 builder = new Uri.Builder();
                 builder.scheme("http")
-                        .authority("image.tmdb.org")
-                        .appendPath("t")
-                        .appendPath("p")
-                        .appendPath("w154")
+                        .authority(authority)
+                        .appendPath(path1)
+                        .appendPath(path2)
+                        .appendPath(width)
                         .appendPath("")
                         .appendPath(json[i]);
 

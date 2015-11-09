@@ -23,6 +23,11 @@
         <item>vote</item>
     </string-array>
 
+    <!-- Strings used as page headings -->
+
+
+    <!-- Text used in the About page -->
+
     <string name="title_activity_about">About</string>
     <string name="about_content">
 
