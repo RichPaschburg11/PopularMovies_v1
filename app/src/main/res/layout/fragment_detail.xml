@@ -1,4 +1,5 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +11,7 @@
 
     <TextView
         android:id="@+id/detail_text"
-        android:text="@string/hello_world"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

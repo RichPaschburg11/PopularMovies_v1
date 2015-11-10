@@ -28,7 +28,6 @@ import java.net.URL;
 
 public class PopularMoviesFragment extends Fragment {
 
-
     private GridViewAdapter mPopularMoviesAdapter;
     private GridView gridVies;
     public UserPrefs userPrefs;
@@ -37,7 +36,6 @@ public class PopularMoviesFragment extends Fragment {
     private String path1 = "t";
     private String path2 = "p";
     private String width = "w185";
-
 
     public PopularMoviesFragment() {
     }
