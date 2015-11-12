@@ -157,10 +157,6 @@ public class PopularMoviesFragment extends Fragment {
                         .appendQueryParameter("sort_by", voteOrPopularity)
                         .appendQueryParameter("api_key", apikeystring);
 
-                String builderString = String.format("url = %1$s", builder);
-
-                //  Log.e(LOG_TAG, builderString);
-
                 String myUrl = builder.build().toString();
                 URL url = new URL(myUrl);
 
