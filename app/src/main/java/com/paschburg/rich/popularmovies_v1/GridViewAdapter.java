@@ -19,6 +19,7 @@ public class GridViewAdapter extends ArrayAdapter<ImageItem> {
     private Context context;
     private int layoutResourceId;
     private ImageItem data[] = null;
+    private String noMoviePoster = "http://image.tmdb.org/t/p/w185/ull";
 
     private static final String LOG_TAG = GridViewAdapter.class.getSimpleName();
 
@@ -47,7 +48,10 @@ public class GridViewAdapter extends ArrayAdapter<ImageItem> {
         }
 
         ImageItem imageItem = data[position];
-        Picasso.with(this.context).load(imageItem.imagep).into(holder.imagev);
+        if (imageItem.imagep.equals(noMoviePoster)){
+            holder.imagev.setImageResource(R.drawable.image_not_available);
+        }
+        else Picasso.with(this.context).load(imageItem.imagep).into(holder.imagev);
 
         return row;
     }

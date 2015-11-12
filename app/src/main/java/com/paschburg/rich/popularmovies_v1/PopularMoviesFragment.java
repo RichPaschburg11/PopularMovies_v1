@@ -174,7 +174,7 @@ public class PopularMoviesFragment extends Fragment {
 
                 String line;
                 while ((line = reader.readLine()) != null){
-                    // Log.e(LOG_TAG, "line = " + line);
+                    Log.e(LOG_TAG, "line = " + line);
                     buffer.append(line);
                 }
 
