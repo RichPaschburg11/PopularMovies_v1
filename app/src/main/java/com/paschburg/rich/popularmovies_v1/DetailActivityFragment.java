@@ -59,7 +59,6 @@ public class DetailActivityFragment extends Fragment {
 
         ((TextView) rootView.findViewById(R.id.title)).setText(details[0]);
 
-        // ((TextView) rootView.findViewById(R.id.title)).setText(movieText);
         Picasso.with(getActivity()).load(details[1]).into((ImageView) rootView.findViewById(R.id.image_for_details));
 
         ((TextView) rootView.findViewById(R.id.year)).setText(details[2]);

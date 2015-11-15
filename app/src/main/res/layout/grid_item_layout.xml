@@ -2,8 +2,8 @@
 <ImageView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/imageres"
-    android:layout_height="273dp"
-    android:layout_width="182dp"
+    android:layout_height="270dp"
+    android:layout_width="180dp"
     android:verticalSpacing="0dp"
     android:horizontalSpacing="0dp"
     android:scaleType="fitCenter"

@@ -37,7 +37,15 @@ public class UserPrefs {
     }
 
     public String getSortOrder(){
-        String settingvalue = settings.getString(PREFS_INDEX + "SortOrder", "");
-        return settingvalue;
+        return settings.getString(PREFS_INDEX + "SortOrder", "");
+    }
+
+    public void setWidth(int width) {
+        editor.putInt(PREFS_INDEX + "Width", width);
+        editor.commit();
+    }
+
+    public int getWidth(){
+        return settings.getInt(PREFS_INDEX + "Width", 180);
     }
 }

@@ -102,21 +102,40 @@ public class PopularMoviesFragment extends Fragment {
                 imageitems2);
 
         gridView.setAdapter(mPopularMoviesAdapter);
+
+        /*
+           If the portrait screen width in dp is less than 180dp * 2, set a smaller column width
+           here than the default, and set the number of columns to 2.  So each phone has at least two
+           columns of movie images in portrait mode.  Note that some of each image is cut off, as the
+           height is not changed.  Refer to the code in MainActivity.java that sets the
+           userPrefs.getWidth() value for a small phone.  For larger devices, a value of 0 is given
+           indicating that the default size of 180dp should be used.
+        */
+
+        userPrefs = new UserPrefs(getActivity());
+        int width = userPrefs.getWidth();
+        if (width != 0){
+            int widthHalf = width/2;
+            gridView.setColumnWidth(widthHalf);
+            gridView.setNumColumns(2);
+        }
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-              @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int position, long l){
-                    ImageItem movie = mPopularMoviesAdapter.getItem(position);
-                    Intent intent = new Intent(getActivity(), DetailActivity.class).
-                            putExtra(Intent.EXTRA_TEXT,String.valueOf(position));
-                    startActivity(intent);
-                }
+               @Override
+               public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                   ImageItem movie = mPopularMoviesAdapter.getItem(position);
+                   Intent intent = new Intent(getActivity(), DetailActivity.class).
+                      putExtra(Intent.EXTRA_TEXT, String.valueOf(position));
+                   startActivity(intent);
+               }
             }
         );
 
         userPrefs = new UserPrefs(getActivity());
         String order = userPrefs.getSortOrder();
+
         FetchMoviesTask fetch=new FetchMoviesTask();
-        // Log.e("Sort Order xxxx",order);
+
         fetch.execute(order);
 
         return rootView;
@@ -174,7 +193,7 @@ public class PopularMoviesFragment extends Fragment {
 
                 String line;
                 while ((line = reader.readLine()) != null){
-                    Log.e(LOG_TAG, "line = " + line);
+                    //  Log.e(LOG_TAG, "line = " + line);
                     buffer.append(line);
                 }
 
