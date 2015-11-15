@@ -122,7 +122,7 @@ public class PopularMoviesFragment extends Fragment {
                 gridView.setNumColumns(2);
             }
         }
-        
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                @Override
                public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
