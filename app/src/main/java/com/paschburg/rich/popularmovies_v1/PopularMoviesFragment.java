@@ -1,6 +1,7 @@
 package com.paschburg.rich.popularmovies_v1;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -112,14 +113,16 @@ public class PopularMoviesFragment extends Fragment {
            indicating that the default size of 180dp should be used.
         */
 
-        userPrefs = new UserPrefs(getActivity());
-        int width = userPrefs.getWidth();
-        if (width != 0){
-            int widthHalf = width/2;
-            gridView.setColumnWidth(widthHalf);
-            gridView.setNumColumns(2);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            userPrefs = new UserPrefs(getActivity());
+            int width = userPrefs.getWidth();
+            if (width != 0) {
+                int widthHalf = width / 2;
+                gridView.setColumnWidth(widthHalf);
+                gridView.setNumColumns(2);
+            }
         }
-
+        
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                @Override
                public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
